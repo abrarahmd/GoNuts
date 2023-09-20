@@ -1,0 +1,79 @@
+* {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    margin: 1px;
+    padding: 0;
+    text-decoration: none;
+    box-sizing: border-box;
+}
+
+body{
+    background-image: url("https://cdn.pixabay.com/photo/2017/11/24/10/43/ticket-2974645_1280.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+form{
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 350px;
+    height: 580px;
+    padding: 75px 50px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);  
+}
+
+h1 {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    text-align: center;
+    margin-bottom: 45px;
+
+    color: white;
+    border: 4px;
+    font-size: 200%;
+    border: none;
+}
+
+.textBoxdiv{
+    border-bottom: 2px solid #112d32;
+    position: relative;
+    margin: 35px 0;
+}
+.textBoxdiv input{
+    background: none;
+    border: none;
+    outline: none;
+    width: 100%;
+    color: white;
+    height: 30px;
+    font-size: 20px;
+}
+
+.LoginCSS{
+    transition: 0.5s;
+    height: 45px;
+    width: 100%;
+    border: none;
+    outline: none;
+    background: #254e58;
+    background-size: 200%;
+    color: white;
+    font-size: 16px;
+}
+
+.LoginCSS:hover{
+    background-position: right;
+    font-size: 17px;
+}
+.singup{
+    color: white;
+    margin-top: 45px;
+    text-align: center;
+}
+
+.Link{
+    color: white;
+}

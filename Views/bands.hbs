@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" href="/newband">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Band Information</title>
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/Concert.css">
+  
+</head>
+
+<body>
+<!--    <div class="text-center">
+      <a class="btn btn-primary" href="/newband">Add New Band</a>
+    </div> -->
+    
+  <div class="container">
+    <h1> Band Information</h1>
+    {{#if bands }}
+    <table>
+      <thread>
+        <tr>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Mobile Number</th>
+          <th>Genre</th>
+          <th>Members</th>
+          <th>Songs</th>
+        </tr>
+      </thread>
+      <tbody>
+        {{#each bands}}
+        <tr>
+          <td>{{BandName}}</td>
+          <td>{{Email}}</td>
+          <td>{{Number}}</td>
+          <td>{{genre}}</td>
+          <td>{{members}}</td>
+          <td>{{Songs}}</td>
+        </tr>
+        {{/each}}
+      </tbody>
+    </table>
+    
+    {{/if}}
+  </div>
+
+
+
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+ 
+</body>
+
+</html>

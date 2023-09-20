@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+
+<html> 
+    <head>
+        <title>Remove Bands</title>
+    </head>
+    <body>
+
+        <form action = "/auth/RemoveBands" method = "POST"> <!saving the input>
+            <h1>Which Concert You Want to Remove?</h1>
+            <div class = "textBoxdiv">
+                <input type = "text" placeholder = "Band Name" name = "name"> 
+            </div>
+            <br>
+            <div class = "textBoxdiv">
+                <input type = "email" placeholder = "Band Email" name = "email">
+            </div>
+            <br>
+            <input type = "submit" value = "Submit" class = "SignupCSS">
+            
+        </form>
+        
+        {{#if message}}
+            <h4 class = "alert alert-danger mt-4">{{message}}</h4>
+        {{/if}}
+
+    </body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html> 
+    <head>
+        <title>ADMIN Signup</title>
+    </head>
+    <body>
+
+        <form action = "/auth/AdminSignup" method = "POST"> <!saving the input>
+            <h1>Admin Signup</h1>
+            <div class = "textBoxdiv">
+                <input type = "text" placeholder = "Username" name = "username">
+            </div>
+            <div class = "textBoxdiv">
+                <input type = "text" placeholder = "Name" name = "name">
+            </div>
+            <div class = "textBoxdiv">
+                <input type = "email" placeholder = "Email" name = "email">
+            </div>
+
+            <div class = "textBoxdiv">
+                <input type = "text" placeholder = "NID Number" name = "nidNumber">
+            </div>
+
+            <div class = "textBoxdiv">
+                <input type = "password" placeholder = "Create Password", name = "password">
+            </div>
+
+            <div class = "textBoxdiv">
+                <input type = "password" placeholder = "Confirm Password", name = "passwordConfirm">
+            </div>
+            <br>
+
+            <input type = "submit" value = "Signup" class = "SignupCSS">
+
+            
+
+            <div class = "singup">
+                <br>
+                Already have an account?
+            <a href = "AdminLogin">Sign in</a>
+            </div>
+                
+        </form>
+        
+        {{#if message}}
+            <h4 class = "alert alert-danger mt-4">{{message}}</h4>
+        {{/if}}
+
+
+
+    </body>
+</html>

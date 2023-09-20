@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Add New Band</title>
+    <link rel="stylesheet" type="text/css" href="/Bands.css">
+</head>
+
+<body>
+    <div class="band-form-container">
+        <h1>Add New Band</h1>
+        <form action="/auth/AdminAddBands" method="POST" >
+            <div class="form-group">
+                <label for="name">Band Name:</label> <br>
+                <input type="text" class="form-control" id="name" name="name">
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label><br>
+                <input type="email" class="form-control" id="email" name="email" >
+            </div>
+            <div class="form-group">
+                <label for="mobile">Mobile Number:</label><br>
+                <input type="tel" class="form-control" id="mobile" name="mobile">
+            </div>
+            <div class="form-group">
+                <label for="genre">Genre:</label><br>
+                <input type="text" class="form-control" id="genre" name="genre">
+            </div>
+            <div class="form-group">
+                <label for="members">Band Members:</label><br>
+                <input type="text" class="form-control" id="members" name="members">
+            </div>
+            <div class="form-group">
+                <label for="songs">Songs:</label><br>
+                <input type="text" class="form-control" id="songs" name="songs">
+            </div><br>
+            <button type="submit" class="btn btn-primary" > Add Band</button>
+        </form>
+    </div>

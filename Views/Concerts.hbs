@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Concert.css">
+    <title>Concerts</title>
+    <style>
+        /* Your existing CSS styles here */
+
+        /* Style for the concert boxes */
+        .concert-box {
+            margin: 20px 0;
+            padding: 20px;
+            background-color: rgb(232, 223, 223);
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(17, 3, 3, 0.2);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+        .concert-box img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+        .popup {
+            display: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 20px;
+            background-color: rgba(164, 153, 153, 0.8);
+            color: #fff;
+            border-radius: 5px;
+            z-index: 1000;
+        }
+        .popup img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="concert-box" onclick="showPopup(1)">
+        <h1>Upcoming Concerts</h1>
+        {{#if concertData}}
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Date</th>
+                    <th>Description</th>
+                    <th>Type</th>
+                    <th>VenueID</th>
+                    
+                    
+                    
+                </tr>
+            </thead>
+            <tbody>
+                {{#each concertData}}
+                <tr>
+                    <td><p><strong>{{ID}}</strong></p></td>
+                    <td><strong>{{Name}}</strong></td>
+                    <td><strong>{{Date}}</strong></td>
+                    <td><strong>{{Description}}</strong></td>
+                    <td><strong>{{Type}}</strong></td>
+                    <td><strong>{{Venue}}</strong></td>
+                    <th><a href="/BuyTickets">Buy ticket!</a></th>
+                    {{!-- <td>{{concert_venue}}</td>
+                    <td>{{ticket_price}}</td> --}}
+                </tr>
+                <tr>
+                    {{!-- <td colspan="4">
+                        <div class="image-container">
+                             {{#ifEqual ID 1}}
+                            <img src="https://assets.telegraphindia.com/telegraph/2022/Jun/1654539874_new-project.jpg" alt="Concert 1">
+                            {{/ifEqual}}
+                            {{#ifEqual ID 2}}
+                            <img src="https://media.istockphoto.com/id/1189205501/photo/cheering-crowd-of-unrecognized-people-at-a-rock-music-concert-concert-crowd-in-front-of.jpg?s=612x612&w=0&k=20&c=_vgyStdIBHCbnDHdu3lNTwfJxt2fTcJc9PB345ryhZo=" alt="Concert 2">
+                            {{/ifEqual}}
+                            {{#ifEqual ID 3}}
+                            <img src="https://media.istockphoto.com/id/1289481257/photo/a-crowded-concert-hall-with-scene-stage-lights-rock-show-performance-with-people-silhouette.jpg?b=1&s=612x612&w=0&k=20&c=i04jVo_GHeV4JdYwKoV8YFwE4TeuXs58sjKGNX56gbM=" alt="Concert 3">
+                            {{/ifEqual}}  
+                            {{#ifEqual ID 4}}
+                            <img src="https://images.pexels.com/photos/1387174/pexels-photo-1387174.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Concert 4">
+                            {{/ifEqual}}
+                        </div>
+                    </td> --}}
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+        {{else}}
+        <p>No concert data available.</p>
+        {{/if}}
+       
+    </div>
+
+        <!-- Add more concert info boxes here... -->
+    <!-- </div> -->
+     <!-- JavaScript for Popup -->
+     <script>
+        function showPopup(concertNumber) {
+            const popup = document.querySelector(`#popup-${concertNumber}`);
+            popup.style.display = "block";
+        }
+    </script>
+</body>
+</html>
+        {{!-- <img src="https://assets.telegraphindia.com/telegraph/2022/Jun/1654539874_new-project.jpg" alt="Concert 1">
+        <div class="concert-info">
+
+            <!-- <div class="popup"> -->
+                <p><strong>ID:</strong> 123</p>
+                <p><strong>Name:</strong> Awesome Band Live in Concert</p>
+                <p><strong>Date:</strong> August 25, 2023</p>
+                <p><strong>Description:</strong> A concert is a symphony of emotions where melodies and rhythms paint stories that resonate in the hearts of the audience..</p>
+                <p><strong>Type:</strong> Rock</p>
+                <p><strong>Venue ID:</strong> V123</p>
+                <p><strong>Seats:</strong> General Admission</p>
+                <p><strong>Tickets:</strong> <a href="ticket.html">Buy Tickets</a></p>
+                <p><strong>Ratings:</strong>
+                    <span class="rating">
+                        &#9733;&#9733;&#9733;&#9733;&#9734; <!-- 4 out of 5 stars -->
+                    </span>   
+                </p>
+        </div>
+    </div>
+    <div class="concert-box" onclick="showPopup(1)">
+        <img src="https://media.istockphoto.com/id/1189205501/photo/cheering-crowd-of-unrecognized-people-at-a-rock-music-concert-concert-crowd-in-front-of.jpg?s=612x612&w=0&k=20&c=_vgyStdIBHCbnDHdu3lNTwfJxt2fTcJc9PB345ryhZo=" alt="Concert 2">
+        <div class="concert-info">
+            <p><strong>ID:</strong> 456</p>
+            <p><strong>Name:</strong> Rock Fest Extravaganza</p>
+            <p><strong>Date:</strong> August 26, 2023</p>
+            <p><strong>Description:</strong> A concert is a symphony of emotions where melodies and rhythms paint stories that resonate in the hearts of the audience..</p>
+            <p><strong>Type:</strong> Rock</p>
+            <p><strong>Venue ID:</strong> V456</p>
+            <p><strong>Seats:</strong> General Admission</p>
+            <p><strong>Tickets:</strong> <a href="ticket.html">Buy Tickets</a></p>
+            <p><strong>Ratings:</strong>
+                <span class="rating">
+                    &#9733;&#9733;&#9733;&#9733;&#9734; <!-- 4 out of 5 stars -->
+                </span>   
+            </p>
+        </div>
+    </div>
+    <div class="concert-box" onclick="showPopup(1)">
+        <img src="https://media.istockphoto.com/id/1289481257/photo/a-crowded-concert-hall-with-scene-stage-lights-rock-show-performance-with-people-silhouette.jpg?b=1&s=612x612&w=0&k=20&c=i04jVo_GHeV4JdYwKoV8YFwE4TeuXs58sjKGNX56gbM=" alt="Concert 3">
+        <div class="concert-info">
+            <p><strong>ID:</strong> 789</p>
+            <p><strong>Name:</strong> Blues Night</p>
+            <p><strong>Date:</strong> August 27, 2023</p>
+            <p><strong>Description:</strong> A concert is a symphony of emotions where melodies and rhythms paint stories that resonate in the hearts of the audience..</p>
+            <p><strong>Type:</strong> Classical</p>
+            <p><strong>Venue ID:</strong> V789</p>
+            <p><strong>Seats:</strong> VIP</p>
+            <p><strong>Tickets:</strong> <a href="ticket.html">Buy Tickets</a></p>
+            <p><strong>Ratings:</strong>
+                <span class="rating">
+                    &#9733;&#9733;&#9733;&#9733;&#9734; <!-- 4 out of 5 stars -->
+                </span>   
+            </p>
+        </div>
+    </div>
+    <div class="concert-box" onclick="showPopup(1)">
+        <img src="https://images.pexels.com/photos/1387174/pexels-photo-1387174.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Concert 4">
+        <div class="concert-info">
+            <p><strong>ID:</strong> 258</p>
+            <p><strong>Name:</strong> Lesgo World</p>
+            <p><strong>Date:</strong> August 28, 2023</p>
+            <p><strong>Description:</strong> A concert is a symphony of emotions where melodies and rhythms paint stories that resonate in the hearts of the audience..</p>
+            <p><strong>Type:</strong> Jazz</p>
+            <p><strong>Venue ID:</strong> V258</p>
+            <p><strong>Seats:</strong> VIP</p>
+            <p><strong>Tickets:</strong> <a href="ticket.html">Buy Tickets</a></p>
+            <p><strong>Ratings:</strong>
+                <span class="rating">
+                    &#9733;&#9733;&#9733;&#9733;&#9734; <!-- 4 out of 5 stars -->
+                </span>   
+            </p> --}}
+        {{!-- </div>
+    </div>
+
+        <!-- Add more concert info boxes here... -->
+    <!-- </div> -->
+     <!-- JavaScript for Popup -->
+     <script>
+        function showPopup(concertNumber) {
+            const popup = document.querySelector(`#popup-${concertNumber}`);
+            popup.style.display = "block";
+        }
+    </script>
+</body>
+</html> --}}

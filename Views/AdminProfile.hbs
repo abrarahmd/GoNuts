@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Admin Profile</title>
+        <link rel="stylesheet" href="/MyProfile.css"/>
+        
+    </head>
+    <body>
+        <section class="main">
+            <div class="profile-card">
+                <div class="image">
+                    <img
+                        src="C:\Users\User\Downloads\artworks-XfC9eyVE5g3eQzr4-E8Qt1Q-t500x500.jpg"
+                        alt=""
+                        class="profile-pic"
+                    />
+                </div>
+                <div class="data">
+                    <h2 id="name">Not Logged In</h2>
+
+                </div>
+                <div class="row">
+
+                    <div class="info">
+                        <h3>Username</h3>
+                        <span id="username"></span>
+                    </div>
+                    <div class="info">
+                        <h3>E-Mail address</h3>
+                        <span  id="email"></span>
+                    </div>
+                    <div class="info">
+                        <h3>NID</h3>
+                        <span id="nid"></span>
+                    </div>
+                </div>
+                
+                <div class="buttons">
+
+
+                    <button class="btn" type = "submit" onClick = "logout()">Log out</button>
+
+                    
+                </div>
+            </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        </section>
+
+            <script>
+            const username = document.getElementById('username');
+            const nid = document.getElementById('nid')
+            const email = document.getElementById('email')
+            const name = document.getElementById('name')
+            if(localStorage.getItem("TOKEN") !== "") {
+            axios.post('http://localhost:5000/AdminAPI', {
+                token: localStorage.getItem('TOKEN')
+            }).then((res) => {
+                console.log(res.data)
+                username.innerText = res.data[0].username
+                nid.innerText = res.data[0].NID
+                email.innerText = res.data[0].Email
+                name.innerText = res.data[0].name
+            })}
+            function logout(){
+                localStorage.setItem("TOKEN", "")
+                window.location.href = "/AdminLogin"
+            }
+        </script>
+
+
+    </body>
+</html>

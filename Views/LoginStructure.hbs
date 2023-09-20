@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html> 
+    <head>
+        <title>Concert Ticket Login</title>
+        <link rel = "stylesheet" href = "/LoginStyle.css">
+    </head>
+    <body>
+        <form action = "/auth/LoginStructure" method = "POST"> <!saving the input>
+            <h1>Login</h1>
+            <div class = "formBackground"></div>
+
+            <div class = "textBoxdiv">
+                <input type = "text" placeholder = "Username" id="usernameID" name = "username">
+            </div>
+
+            <div class = "textBoxdiv">
+                <input  id="passwordID" type = "password" placeholder = "Password" name = "password">
+            </div>
+            
+            <input type = "submit" value = "Login" class = "LoginCSS" onclick="saveToken()">Submit</input>
+
+            <div class = "singup">
+                Don't have an account?
+            <div class = "Link">
+                <a href = "SignupStructure">Sign up</a>
+            </div>
+
+            
+            </div>
+                
+        </form>
+
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <script>
+            function saveToken() {
+                axios.post('http://localhost:5000/api/auth', {
+                    username: document.getElementById("usernameID").value,
+                    password: document.getElementById("passwordID").value
+                }).then((res) => {
+                    localStorage.setItem('TOKEN', res.data[0].token)
+                })
+            }
+        </script>
+    </body>
+</html>

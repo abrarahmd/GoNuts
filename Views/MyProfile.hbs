@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>My Profile</title>
+        <link rel="stylesheet" href="/MyProfile.css"/>
+
+        
+    </head>
+    <body>
+        <section class="main">
+            <div class="profile-card">
+                <div class="image">
+                    <img
+                        src="https://media.istockphoto.com/id/1130884625/vector/user-member-vector-icon-for-ui-user-interface-or-profile-face-avatar-app-in-circle-design.jpg?s=612x612&w=0&k=20&c=1ky-gNHiS2iyLsUPQkxAtPBWH1BZt0PKBB1WBtxQJRE="
+                        alt=""
+                        class="profile-pic"
+                    />
+                </div>
+                <div class="data">
+                    <h2 id="name">Not Logged In</h2>
+
+                </div>
+                <div class="row">
+
+                    <div class="info">
+                        <h3>Username</h3>
+                        <span id="username"></span>
+                    </div>
+                    <div class="info">
+                        <h3>E-Mail address</h3>
+                        <span  id="email"></span>
+                    </div>
+                    <div class="info">
+                        <h3>NID</h3>
+                        <span id="nid"></span>
+                    </div>
+                    <div class="info">
+                        <h3>Ticket ID</h3>
+                        <span id="TicketID"></span>
+                    </div>
+                </div>
+                
+                <div class="buttons">
+
+
+                    <button class="btn" type = "submit" onclick = "logout()">Log out</button>
+
+                    
+                </div>
+            </div>
+        </section>
+
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+        <script>
+            const username = document.getElementById('username');
+            const nid = document.getElementById('nid')
+            const email = document.getElementById('email')
+            const name = document.getElementById('name')
+            const ticket = document.getElementById('TicketID')
+            const TOKEN = localStorage.getItem('TOKEN')
+
+            if(TOKEN == undefined || TOKEN === "") TOKEN = ""
+
+            if(localStorage.getItem("TOKEN") !== "") {
+
+                axios.post('http://localhost:5000/api/authorizeUser', {
+                    token: TOKEN
+                }).then((res) => {
+                    console.log(res.data)
+                    username.innerText = res.data.userData.Username
+                    nid.innerText = res.data.userData.NID
+                    email.innerText = res.data.userData.Email
+                    name.innerText = res.data.userData.Name
+                    
+                    if(typeof res.data.ticketId === 'string') {
+                        ticket.innerText = res.data.ticketId
+                    }
+
+                    else {
+                        let totalData = ''
+                        console.log(res.data.ticketId)
+
+                        for(let i = 0; i < res.data.ticketId.length; i++) {
+                            totalData += res.data.ticketId[i].TicketID + '\n'
+                        }
+
+                        ticket.innerText = totalData
+                    }
+                })
+            }
+
+            function logout(){
+                localStorage.setItem("TOKEN", "")
+                window.location.href = "/LoginStructure"
+            }
+
+        </script>
+
+    </body>
+</html>

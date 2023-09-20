@@ -1,0 +1,134 @@
+body {
+   font-family: Arial, sans-serif;
+   margin: 0;
+   padding: 0;
+}
+
+header {
+   background-color: #644668;
+   color: #fff;
+   text-align: center;
+   padding: 1rem 0;
+}
+
+main {
+   max-width: 600px;
+   margin: 0 auto;
+   padding: 2rem;
+}
+
+widget {
+   filter: drop-shadow(1px 1px 3px rgba(0, 0, 0, 0.3));
+   &[type="ticket"] {
+      width: 400px;
+      .top,
+      .bottom {
+         >div {
+            padding: 0 18px;
+            &:first-child {
+               padding-top: 10px;
+            }
+            &:last-child {
+               padding-bottom: 18px;
+            }
+         }
+         img {
+            padding: 20px 0;
+         }
+      }
+      .top,
+        .bottom,
+        .rip {
+           background-color: #f7efefcc;
+        }
+        .top {
+           border-top-right-radius: 10px;
+           border-top-left-radius: 10px;
+           .deetz {
+              padding-bottom: 20px !important;
+           }
+        }
+        .bottom {
+           display: flex; /* Use flexbox for side-by-side elements */
+           justify-content: space-between; /* Add space between barcode and button */
+           align-items: center; /* Vertically align the content */
+           border-bottom-right-radius: 5px;
+           border-bottom-left-radius: 5px;
+           padding: 18px;
+           height: auto; /* Remove fixed height to accommodate content */
+       }
+       
+       .barcode {
+           background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAF4AAAABCAYAAABXChlMAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAYdEVYdFNvZnR3YXJlAHBhaW50Lm5ldCA0LjAuOWwzfk4AAACPSURBVChTXVAJDsMgDOsrVpELiqb+/4c0DgStQ7JMYogNh2gdvg5VfXFCRIZaC6BOtnoNFpvaumNmwb/71Frrm8XvgYkker1/g9WzMOsohaOGNziRs5inDsAn8yEPengTapJ5bmdZ2Yv7VvfPN6AH2NJx7nOWPTf1/78hoqgxhzw3ZqYG1Dr/9ur3y8vMxgNZhcAUnR4xKgAAAABJRU5ErkJggg==);
+           background-repeat: repeat-y;
+           min-width: 58px;
+           padding: 0 10px; /* Adjust padding as needed */
+       }
+       
+       .buy {
+           font-size: 12px;
+           font-weight: bold;
+           background-color: #644668;
+           padding: 8px 18px; /* Adjust padding to match barcode's height */
+           line-height: normal; /* Reset line-height */
+           border-radius: 15px;
+           color: #fff;
+           text-decoration: none;
+       }
+       
+       
+        .rip {
+           height: 40px;
+           margin: 0 10px;
+           background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAACCAYAAAB7Xa1eAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAYdEVYdFNvZnR3YXJlAHBhaW50Lm5ldCA0LjAuOWwzfk4AAAAaSURBVBhXY5g7f97/2XPn/AcCBmSMQ+I/AwB2eyNBlrqzUQAAAABJRU5ErkJggg==);
+           background-size: 3px 2px;
+           background-repeat: repeat-x;
+           background-position: center;
+           position: relative;
+           box-shadow: 0 1px 0 0 #fff, 0 -1px 0 0 #fff;
+           &:before,
+           &:after {
+              content: '';
+              position: absolute;
+              width: 20px;
+              height: 20px;
+              top: 50%;
+              transform: translate(-50%, -50%) rotate(45deg);
+              border: 5px solid transparent;
+              border-top-color: #fff;
+              border-right-color: #fff;
+              border-radius: 100%;
+              pointer-events:none;
+           }
+           &:before {
+              left: -10px;
+           }
+           &:after {
+              transform: translate(-50%, -50%) rotate(225deg);
+              right: -40px;
+           }
+        }
+     }
+     .-bold {
+        font-weight: bold;
+     }
+  }
+   .-center {
+       text-align: center;
+   }
+
+
+
+   .widget-gap {
+       margin-bottom: 60px; /* Adjust the gap size as needed */
+   }
+       
+
+
+footer {
+   text-align: center;
+   padding: 1rem 0;
+   background-color: #f5f5f5;
+}
+
+

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html> 
+    <head>
+        <title>Admin Login</title>
+    </head>
+
+    <body>
+        <form action = "/auth/AdminLogin" method = "POST"> <!saving the input>
+            <h1>Admin Login</h1>
+            <div class = "formBackground"></div>
+
+            <div class = "textBoxdiv">
+                <input type = "text" placeholder = "Username" id="usernameID" name = "username">
+            </div>
+
+            <div class = "textBoxdiv">
+                <input  id="passwordID" type = "password" placeholder = "Password" name = "password">
+            </div>
+            <br>
+            
+            <input type = "submit" value = "Login" class = "LoginCSS" onclick="saveToken()"></input>
+            
+            <br> 
+
+            <div class = "singup">
+                <br>
+                New Admin? <br>
+                <a href = "AdminSignup">Sign up</a>
+            <div class = "Link">
+                
+            </div>
+
+            
+            </div>
+                
+        </form>
+
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <script>
+            function saveToken() {
+                axios.post('http://localhost:5000/api/auth', {
+                    username: document.getElementById("usernameID").value,
+                    password: document.getElementById("passwordID").value
+                }).then((res) => {
+                    localStorage.setItem('TOKEN', res.data[0].token)
+                })
+            }
+        </script>
+    </body>
+</html>
